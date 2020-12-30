@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="page_liste">
+            <div class="container show_room">
+                {% for membre in groups.getMembers() %}
+                    <div class="cards">
+                        <img src="{{ asset(membre.getPicture().getUrl()) }}" alt="" class="img_membre">
+                        <h3>{{ membre.getName() }} {{ membre.getFirstName() }}</h3>
+                        <ul id="desc">
+                            <li class="year">Date de naissance : {{ membre.getBirthDate|date("d/m/Y") }}</li>
+                            <li class="Job">Rôle : {{ membre.getJob() }}</li>
+                            <li class="band">Groupe : {{ groups.getName() }}</li>
+                        </ul>
+                        <a href="{{ path('group') }}/membre/edit/{{ membre.id }}">Modifier le membre</a>
+                        <a href="{{ path('group') }}/membre/delete/{{ membre.id }}">Supprimer le membre</a>
+                    </div>
+                {% endfor %}
+            </div>
+        <h2>Concerts à venir !</h2>
+        <div class="container show_room">
+            {% for show in groups.shows %}
+                <div class="cards">
+                    <h3>{{ show.tourName }}</h3>
+                    <ul>
+                        <li>{{ show.date|date("d/m/Y") }}</li>
+                        <li>{{ show.hall.name }}</li>
+                    </ul>
+                    <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut debitis ea est non saepe! Accusantium eaque earum eveniet exercitationem facere, fugiat hic, laborum, quas quasi quibusdam repellat reprehenderit voluptates! Aut dolores dolorum modi, nam neque nostrum odit optio quasi sequi?</p>
+                    <a href="{{ path("list") }}/{{ show.getId() }}">Détails</a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="edit"><a href="{{ path('group') }}/edit/{{ groups.id }}">Modifier le groupe</a></div>
+        <div class="delete"><a href="{{ path('group') }}/delete/{{ groups.id }}">Supprimer le groupe</a></div>
+    </div>
+{% endblock %}

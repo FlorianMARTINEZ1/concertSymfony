@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ConcertController!{% endblock %}
+
+{% block body %}
+    <div class="page_liste">
+        <h1>Concert à venir !</h1>
+        <div class="container show_room">
+            {% for concert in concerts %}
+                {% if date() < concert.date %}
+                    <div class="cards">
+                        <h3>{{ concert.tourName }}</h3>
+                        <ul>
+                            <li>{{ concert.date|date("d/m/Y") }}</li>
+                            <li>{{ concert.hall.name }}</li>
+                        </ul>
+                        <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut debitis ea est non saepe! Accusantium eaque earum eveniet exercitationem facere, fugiat hic, laborum, quas quasi quibusdam repellat reprehenderit voluptates! Aut dolores dolorum modi, nam neque nostrum odit optio quasi sequi?</p>
+                        <a href="{{ path("list") }}/{{ concert.id }}">Détails</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="create">
+            <a href="{{ path('concert_create') }}" class="newConcert">Créer un nouveau concert !</a>
+        </div>
+    </div>
+{% endblock %}

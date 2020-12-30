@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="page_liste">
+            <div class="container show_room">
+                {% for concert in concerts %}
+                    <div class="cards">
+                        <img src="{{ asset("images/concert2.jpg") }}" alt="" class="img_grp">
+                        <h3>{{ concert }}</h3>
+                        <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut debitis ea est non saepe! Accusantium eaque earum eveniet exercitationem facere, fugiat hic, laborum, quas quasi quibusdam repellat reprehenderit voluptates! Aut dolores dolorum modi, nam neque nostrum odit optio quasi sequi?</p>
+                        <a href="{{ path("concert_detail") }}/{{ concert.getId() }}">Détails</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

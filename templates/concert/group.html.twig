@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="page_liste">
+        <h2>Liste des groupes</h2>
+            <div class="container show_room">
+                {% for group in groups %}
+                    <div class="cards">
+                        <img src="{{ asset(group.getPicture().getUrl()) }}" alt="" class="img_grp">
+                        <h3>{{ group.getName() }}</h3>
+                        <ul id="desc">
+                            <li class="year">Année de création : <span class="details">{{ group.getYearOfCreation|date("Y") }}</span></li>
+                            <li class="style">Style musical : <span class="details">{{ group.getStyle() }}</span></li>
+                            <li class="lastAlbum">Dernier Album : <span class="details">{{ group.getLastAlbumName() }}</span></li>
+                            <li class="link"><a href="{{ path("group") }}/{{ group.getId() }}">Détails</a></li>
+                        </ul>
+                    </div>
+                {% endfor %}
+            </div>
+        <div class="create"><a href="{{ path("groupe_create") }}">Créer un nouveau groupe !</a></div>
+        </div>
+    </div>
+{% endblock %}

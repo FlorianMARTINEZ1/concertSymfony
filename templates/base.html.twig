@@ -1,12 +1,65 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Trouvez votre concert !{% endblock %}</title>
+    {% block stylesheets %}
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/listes.css') }}"> {% endblock %}
+</head>
+
+<body>
+    {% block hearder %}
+    <header>
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <div class="bonjour">
+                <h3 >Bonjour {{ app.user.firstname }}</h3>
+            </div>
+        {% endif %}
+        <div class="navbar">
+            <a href="{{ path("concert") }}">
+                <div class="item-nav">Accueil</div>
+            </a>
+            <a href="{{ path("group") }}">
+                <div class="item-nav">Groupes</div>
+            </a>
+            <a href="{{ path("list") }}">
+                <div class="item-nav">Concerts</div>
+            </a>
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <a href="{{ path("user_edit") }}">
+                    <div class="item-nav">Compte</div>
+                </a>
+                <a href="{{ path("app_logout") }}">
+                    <div class="item-nav">Log Out</div>
+                </a>
+                {% else %}
+                    <a href="{{ path("app_login") }}">
+                        <div class="item-nav">Login</div>
+                    </a>
+                    <a href="{{ path("app_register") }}">
+                        <div class="item-nav">Register</div>
+                    </a>
+            {% endif %}
+        </div>
+    </header>
+    {% endblock %}
+    <main>
+        {% block body %}
+        <h1>Hello</h1>
+        {% endblock %}
+    </main>
+    {% block javascripts %}
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    {% endblock %} {% block footer %}
+    <footer>
+        <p>250 Chemin de l'Aérodrome, 30000 Nîmes</p>
+    </footer>
+    {% endblock %}
+</body>
+
 </html>

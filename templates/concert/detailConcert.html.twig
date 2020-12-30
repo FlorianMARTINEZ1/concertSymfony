@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="page_liste">
+            <div class="container show_room">
+                <div class="cards">
+                    <h3>{{ concert.tourName }}</h3>
+                    <ul>
+                        <li>{{ concert.date|date("d/m/Y") }}</li>
+                        <li>{{ concert.hall.name }}</li>
+                    </ul>
+                    <p class="desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut debitis ea est non saepe! Accusantium eaque earum eveniet exercitationem facere, fugiat hic, laborum, quas quasi quibusdam repellat reprehenderit voluptates! Aut dolores dolorum modi, nam neque nostrum odit optio quasi sequi?</p>
+                    <a href="{{ path("list") }}/edit/{{ concert.id }}">Modifier le concert</a>
+                    <a href="{{ path("list") }}/delete/{{ concert.id }}">Supprimer le concert</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+body {
+    background: rgb(30, 30, 30);
+    color: rgb(247, 227, 0);
+    font-family: 'Roboto', sans-serif;
+}
+
+main {
+    width: 100%;
+    min-height: calc(100vh - 60px);
+}
+
+header {
+    width: 100%;
+    height: 60px;
+    background: #0C0D0C;
+}
+
+header .bonjour {
+    position: absolute;
+    line-height: 60px;
+    margin-left: 24px;
+}
+
+header .navbar {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+header .navbar a .item-nav {
+    width: 100px;
+    height: 100%;
+    line-height: 60px;
+    font-size: 18px;
+    text-align: center;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+header .navbar .item-nav:hover {
+    background: #232426;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(247, 227, 0);
+}
+
+a:hover {
+    text-decoration: none;
+    color: rgb(207, 191, 0);
+}
+
+
+.page_liste {
+    margin: 0;
+    width: 100%;
+    padding-top: 20px;
+    min-height: calc(100% - 60px);
+    font-weight: 200;
+    text-align: center;
+}
+
+.container {
+    width: 90%;
+    height: 100%;
+    margin: auto;
+}
+
+.show_room {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.show_room ul {
+    text-align: left;
+}
+/*--------------Cards------------*/
+.cards {
+    height: 65%;
+    width: 30%;
+    margin: auto auto 30px;
+    background-color: rgb(69, 71, 40);
+    padding: 25px;
+    border-radius: 40px;
+}
+
+.cards img.img_grp {
+    width: 100%;
+    height: 165px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.5);
+}
+
+.cards img.img_membre {
+    width: 100%;
+    max-height: 450px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.5);
+}
+
+.cards h3 {
+    text-align: center;
+}
+
+.cards p.desc {
+    text-align: justify;
+    color: rgb(207, 191, 0);
+}
+
+.cards .link {
+    margin-top: 10px;
+}
+.cards a {
+    padding: 6px;
+    border: 1px solid rgb(247, 227, 0);
+    transition: 0.3s;
+}
+
+.cards a:hover {
+    border-color: rgb(207, 191, 0);
+    border-radius: 10px;
+}
+
+div.show_room div.cards ul#desc {
+    list-style: none;
+    font-size: 16px;
+}
+
+div.show_room div.cards ul#desc li {
+    margin-bottom: 5px;
+}
+/*--------------Fin Cards------------*/
+
+/*----------Form---------*/
+
+.container.form {
+    width: 50%;
+}
+
+.form input {
+    background: transparent;
+    margin-left: 20px;
+    border: 1px solid rgb(207, 191, 0);
+    border-radius: 6px;
+}
+
+button#send {
+    margin: auto;
+    padding: 10px;
+    background: transparent;
+    transition: border-radius 0.2s, background 0.2s;
+    border: 1px solid rgb(207, 191, 0);
+}
+
+button#send:hover {
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/*-------Fin Form------*/
+
+.create {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    font-size: 24px;
+}
+
+footer {
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+    text-align: center;
+    line-height: 50px;
+    background: #0C0D0C;
+}
+
+footer p {
+    width: 100%;
+}
+
+.edit, .delete {
+    margin: 8px auto auto;
+    width: 200px;
+    height: 36px;
+    line-height: 36px;
+    border: 1px solid rgb(207, 191, 0);
+    transition: 0.2s;
+}
+
+.edit:hover, .delete:hover {
+    border-radius: 10px;
+}
